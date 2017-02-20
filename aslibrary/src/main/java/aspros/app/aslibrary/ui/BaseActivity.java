@@ -22,9 +22,8 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
 {
     public T mPresenter;
     public E mModel;
-    public Context mContext;
 
-    private SwipeBackLayout swipeBackLayout;
+    protected SwipeBackLayout swipeBackLayout;
     private ImageView ivShadow;
 
     protected boolean swipeBack = true;
@@ -48,7 +47,6 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         context = this;
 
         ButterKnife.bind(this);
-        mContext = this;
 
         this.initView();
         if (this instanceof BaseView)
@@ -101,7 +99,7 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
     {
         RelativeLayout container = new RelativeLayout(this);
         swipeBackLayout = new SwipeBackLayout(this);
-        swipeBackLayout.setDragEdge(SwipeBackLayout.LEFT);
+        swipeBackLayout.setDragEdge(SwipeBackLayout.LEFT | SwipeBackLayout.TOP);
         ivShadow = new ImageView(this);
         ivShadow.setBackgroundColor(getResources().getColor(R.color.theme_black_7f));
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
