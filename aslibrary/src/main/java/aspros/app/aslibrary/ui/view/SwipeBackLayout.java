@@ -139,6 +139,7 @@ public class SwipeBackLayout extends ViewGroup
 
     private SwipeBackListener swipeBackListener;
     private SwipeFinishListener swipeFinishListener;
+    private RefreshListener refreshListener;
 
     @Deprecated
     public void setOnPullToBackListener(SwipeBackListener listener)
@@ -154,6 +155,10 @@ public class SwipeBackLayout extends ViewGroup
     public void setOnSwipeBackListener(SwipeBackListener listener)
     {
         swipeBackListener = listener;
+    }
+    public void setRefreshListener(RefreshListener refreshListener)
+    {
+        this.refreshListener=refreshListener;
     }
 
     public SwipeBackLayout(Context context)
@@ -556,10 +561,19 @@ public class SwipeBackLayout extends ViewGroup
         public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy)
         {
 
-            if (dir != HORIZONTAL)
+            if (dir ==NO_DIR)
             {
                 return;
             }
+            if(dir==VERTICAL_TOP || dir==VERTICAL_BOTTOM)
+            {
+                if(refreshListener!=null)
+                {
+                    refreshListener.onRefresh(top);
+                }
+                return;
+            }
+
             if ((dragEdge & LEFT) > 0 || (dragEdge & RIGHT) > 0)
             {
                 draggingOffset = left;
@@ -746,6 +760,11 @@ public class SwipeBackLayout extends ViewGroup
     {
         void onFinish(int dir);
 
+    }
+
+    public interface RefreshListener
+    {
+        void onRefresh(int height);
     }
 
 }

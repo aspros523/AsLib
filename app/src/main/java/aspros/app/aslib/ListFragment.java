@@ -1,70 +1,70 @@
 package aspros.app.aslib;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import aspros.app.aslibrary.ui.BaseActivity;
+import aspros.app.aslibrary.ui.BaseFragment;
 import aspros.app.aslibrary.ui.view.SwipeBackLayout;
 import aspros.app.aslibrary.util.LogUtil;
 import butterknife.Bind;
 
-public class MainActivity extends BaseActivity
+/**
+ * Created by aspros on 2017/2/20.
+ */
+
+public class ListFragment extends BaseFragment
 {
 
+    @Bind(R.id.framelayout)
+    FrameLayout framelayout;
 
     @Bind(R.id.recyclerview)
     RecyclerView recyclerView;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
 
-    }
+    @Bind(R.id.swiplayout)
+    SwipeBackLayout swipeBackLayout;
+
+
+    XListViewHeader header;
 
     @Override
     public int getLayoutId()
     {
-        setSwipeBack(false);
-        return R.layout.activity_main;
+        return R.layout.fragment_list;
     }
 
     @Override
     public void initView()
     {
+        header=new XListViewHeader(context);
+        framelayout.addView(header,0);
+
+        swipeBackLayout.setDragEdge(SwipeBackLayout.TOP);
+        swipeBackLayout.setRefreshListener(header);
         recyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
         recyclerView.setAdapter(new RecyclerView.Adapter()
         {
             @Override
             public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
             {
+                TextView textView=new TextView(context);
+                textView.setPadding(50,50,20,50);
 
-                return new  MyHolder(LayoutInflater.from(context).inflate(R.layout.view_text,parent,false));
+                return new MyHolder(textView);
             }
 
             @Override
             public void onBindViewHolder(RecyclerView.ViewHolder holder, int position)
             {
 
-                ((MyHolder)holder).textView.setText(position+"   text");
-                holder.itemView.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent=new Intent(context,ViewpagerActivity.class);
-                        context.startActivity(intent);
-                    }
-                });
+                ((TextView)holder.itemView  ).setText(position+"   text");
             }
 
             @Override
@@ -75,15 +75,12 @@ public class MainActivity extends BaseActivity
         });
     }
 
-
     public class MyHolder extends RecyclerView.ViewHolder
     {
 
-        TextView textView;
         public MyHolder(View itemView)
         {
             super(itemView);
-            textView= (TextView) itemView.findViewById(R.id.textview);
         }
     }
 }

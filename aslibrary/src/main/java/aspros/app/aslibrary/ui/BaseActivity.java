@@ -23,7 +23,7 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
     public T mPresenter;
     public E mModel;
 
-    protected SwipeBackLayout swipeBackLayout;
+    private SwipeBackLayout swipeBackLayout;
     private ImageView ivShadow;
 
     protected boolean swipeBack = true;
@@ -99,7 +99,7 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
     {
         RelativeLayout container = new RelativeLayout(this);
         swipeBackLayout = new SwipeBackLayout(this);
-        swipeBackLayout.setDragEdge(SwipeBackLayout.LEFT | SwipeBackLayout.TOP);
+        swipeBackLayout.setDragEdge(SwipeBackLayout.LEFT | SwipeBackLayout.TOP | SwipeBackLayout.BOTTOM);
         ivShadow = new ImageView(this);
         ivShadow.setBackgroundColor(getResources().getColor(R.color.theme_black_7f));
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
@@ -112,6 +112,14 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
     public void setSwipeBack(boolean swipeBack)
     {
         this.swipeBack = swipeBack;
+    }
+    public void setDragEdge(int dragEdge)
+    {
+        swipeBackLayout.setDragEdge(dragEdge);
+    }
+    public void setScrollChild(View view)
+    {
+        swipeBackLayout.setScrollChild(view);
     }
 
     @Override

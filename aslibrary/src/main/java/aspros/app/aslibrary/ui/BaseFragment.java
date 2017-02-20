@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.IllegalFormatException;
+
 import aspros.app.aslibrary.R;
 import butterknife.ButterKnife;
 
@@ -22,7 +24,7 @@ public abstract class BaseFragment extends Fragment implements LoadStatusCallbac
 {
 
     protected Context context;
-    protected Activity activity;
+    protected BaseActivity activity;
 
     protected ProgressDialog progressDialog;
     protected RelativeLayout parentContainer;
@@ -119,7 +121,11 @@ public abstract class BaseFragment extends Fragment implements LoadStatusCallbac
     public void onAttach(Activity activity)
     {
         super.onAttach(activity);
-        this.activity = activity;
+        if(!(activity instanceof BaseActivity))
+        {
+            throw new IllegalStateException("activity must extends BaseActivity");
+        }
+        this.activity = (BaseActivity) activity;
 
     }
 
