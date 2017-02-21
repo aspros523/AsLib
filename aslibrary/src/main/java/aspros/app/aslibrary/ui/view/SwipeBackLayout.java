@@ -621,6 +621,7 @@ public class SwipeBackLayout extends ViewGroup
             {
                 isBack = false;
             }
+            Log.i("onViewReleased",isBack+"");
             int finalLeft;
             int finalTop;
 
@@ -674,24 +675,10 @@ public class SwipeBackLayout extends ViewGroup
         {
             if (Math.abs(xvel) > Math.abs(yvel) && Math.abs(xvel) > AUTO_FINISHED_SPEED_LIMIT)
             {
-                return target.getLeft() > 0 ? !canChildScrollLeft() : !canChildScrollRight();
+                return target.getLeft() > 0 ? canChildScrollLeft() : canChildScrollRight();
             }
         }
 
-        //        switch (dragEdge) {
-        //            case TOP:
-        //            case BOTTOM:
-        //                if (Math.abs(yvel) > Math.abs(xvel) && Math.abs(yvel) > AUTO_FINISHED_SPEED_LIMIT) {
-        //                    return dragEdge == DragEdge.TOP ? !canChildScrollUp() : !canChildScrollDown();
-        //                }
-        //                break;
-        //            case LEFT:
-        //            case RIGHT:
-        //                if (Math.abs(xvel) > Math.abs(yvel) && Math.abs(xvel) > AUTO_FINISHED_SPEED_LIMIT) {
-        //                    return dragEdge == DragEdge.LEFT ? !canChildScrollLeft() : !canChildScrollRight();
-        //                }
-        //                break;
-        //        }
         return false;
     }
 

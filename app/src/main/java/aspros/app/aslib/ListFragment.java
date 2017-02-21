@@ -1,5 +1,6 @@
 package aspros.app.aslib;
 
+import android.os.Environment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -7,7 +8,10 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.tencent.tinker.lib.tinker.TinkerInstaller;
 
 import aspros.app.aslibrary.ui.BaseFragment;
 import aspros.app.aslibrary.ui.view.SwipeBackLayout;
@@ -52,17 +56,27 @@ public class ListFragment extends BaseFragment
             @Override
             public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
             {
-                TextView textView=new TextView(context);
-                textView.setPadding(50,50,20,50);
+                ImageView imageView=new ImageView(context);
 
-                return new MyHolder(textView);
+                return new MyHolder(imageView);
             }
 
             @Override
             public void onBindViewHolder(RecyclerView.ViewHolder holder, int position)
             {
 
-                ((TextView)holder.itemView  ).setText(position+"   text");
+                ((ImageView)holder.itemView  ).setImageResource(R.mipmap.pay_wx);
+
+                holder.itemView.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        TinkerInstaller.onReceiveUpgradePatch(context.getApplicationContext(), Environment
+                                .getExternalStorageDirectory().getAbsolutePath() + "/patch_signed_7zip.apk");
+
+                    }
+                });
             }
 
             @Override
