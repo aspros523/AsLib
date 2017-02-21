@@ -44,10 +44,8 @@ public class ListFragment extends BaseFragment
     public void initView()
     {
         header=new XListViewHeader(context);
-        framelayout.addView(header,0);
 
         swipeBackLayout.setDragEdge(SwipeBackLayout.TOP);
-        swipeBackLayout.setRefreshListener(header);
         recyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
         recyclerView.setAdapter(new RecyclerView.Adapter()
         {

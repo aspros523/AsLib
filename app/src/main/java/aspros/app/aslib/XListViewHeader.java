@@ -22,7 +22,7 @@ import aspros.app.aslibrary.ui.view.SwipeBackLayout;
 import aspros.app.aslibrary.util.DensityUtil;
 
 
-public class XListViewHeader extends LinearLayout implements SwipeBackLayout.RefreshListener
+public class XListViewHeader extends LinearLayout
 {
     private LinearLayout mContainer;
     private ImageView mArrowImageView;
@@ -143,18 +143,4 @@ public class XListViewHeader extends LinearLayout implements SwipeBackLayout.Ref
         return mContainer.getHeight();
     }
 
-    @Override
-    public void onRefresh(int height)
-    {
-        setVisiableHeight(height);
-
-        if (getVisiableHeight() > headerViewHeight)
-        {
-            setState(XListViewHeader.STATE_READY);
-        }
-        else
-        {
-            setState(XListViewHeader.STATE_NORMAL);
-        }
-    }
 }
