@@ -35,7 +35,6 @@ public class XHeader extends IXHeader
     public XHeader(Context context)
     {
         super(context);
-        initView(context);
     }
 
     @Override
@@ -43,9 +42,9 @@ public class XHeader extends IXHeader
     {
         container = LayoutInflater.from(context).inflate(R.layout.view_xlistview_header, null);
 
-        mArrowImageView = (ImageView) findViewById(R.id.xlistview_header_arrow);
-        mHintTextView = (TextView) findViewById(R.id.xlistview_header_hint_textview);
-        mProgressBar = (ProgressBar) findViewById(R.id.xlistview_header_progressbar);
+        mArrowImageView = (ImageView) container.findViewById(R.id.xlistview_header_arrow);
+        mHintTextView = (TextView) container.findViewById(R.id.xlistview_header_hint_textview);
+        mProgressBar = (ProgressBar) container.findViewById(R.id.xlistview_header_progressbar);
 
         mRotateUpAnim = new RotateAnimation(0.0f, -180.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         mRotateUpAnim.setDuration(ROTATE_ANIM_DURATION);
