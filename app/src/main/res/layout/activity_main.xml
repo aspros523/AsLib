@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -9,13 +10,31 @@
     android:background="@color/white"
     tools:context="aspros.app.aslib.MainActivity">
 
-      <TextView
-          android:id="@+id/xrecycler"
+      <aspros.app.aslib.view.Group.Group
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:padding="12dp"
-          android:drawableRight="@mipmap/arrow_right"
-          android:text="下拉刷新"/>
+          android:background="@color/main_bg"
+          app:title="组件"
+          >
+            <TextView
+                android:id="@+id/xrecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:background="@color/white"
+                android:drawableRight="@mipmap/arrow_right"
+                android:text="下拉刷新"/>
+            <TextView
+                android:id="@+id/action"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:background="@color/white"
+
+                android:drawableRight="@mipmap/arrow_right"
+                android:text="下拉刷新"/>
+      </aspros.app.aslib.view.Group.Group>
+
 
 
 </LinearLayout>

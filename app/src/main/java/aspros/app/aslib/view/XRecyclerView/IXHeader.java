@@ -1,4 +1,4 @@
-package aspros.app.aslib.view;
+package aspros.app.aslib.view.XRecyclerView;
 
 import android.content.Context;
 import android.support.annotation.AttrRes;

@@ -1,4 +1,4 @@
-package aspros.app.aslib.view;
+package aspros.app.aslib.view.XRecyclerView;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

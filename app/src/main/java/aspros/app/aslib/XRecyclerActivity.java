@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import java.util.concurrent.TimeUnit;
 
-import aspros.app.aslib.view.PullRefreshListener;
-import aspros.app.aslib.view.XRecyclerView;
+import aspros.app.aslib.view.XRecyclerView.PullRefreshListener;
+import aspros.app.aslib.view.XRecyclerView.XRecyclerView;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;

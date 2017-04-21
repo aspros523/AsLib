@@ -4,7 +4,7 @@
  * @author Maxwin
  * @description XListView's header
  */
-package aspros.app.aslib.view;
+package aspros.app.aslib.view.XRecyclerView;
 
 import android.content.Context;
 import android.view.LayoutInflater;
