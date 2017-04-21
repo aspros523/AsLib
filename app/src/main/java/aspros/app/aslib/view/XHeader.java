@@ -38,12 +38,10 @@ public class XHeader extends IXHeader
         initView(context);
     }
 
-    private void initView(Context context)
+    @Override
+    public View initView(Context context)
     {
-        LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         container = LayoutInflater.from(context).inflate(R.layout.view_xlistview_header, null);
-        addView(container, lp);
-
 
         mArrowImageView = (ImageView) findViewById(R.id.xlistview_header_arrow);
         mHintTextView = (TextView) findViewById(R.id.xlistview_header_hint_textview);
@@ -55,6 +53,8 @@ public class XHeader extends IXHeader
         mRotateDownAnim = new RotateAnimation(-180.0f, 0.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         mRotateDownAnim.setDuration(ROTATE_ANIM_DURATION);
         mRotateDownAnim.setFillAfter(true);
+
+        return container;
     }
 
 
@@ -86,24 +86,6 @@ public class XHeader extends IXHeader
         mArrowImageView.setVisibility(View.INVISIBLE);
         mProgressBar.setVisibility(View.VISIBLE);
         mHintTextView.setText(R.string.xlistview_header_hint_loading);
-    }
-
-    @Override
-    public void setVisiableHeight(int height)
-    {
-        if (height < 0)
-        {
-            height = 0;
-        }
-        LayoutParams lp = (LayoutParams) container.getLayoutParams();
-        lp.height = height;
-        container.setLayoutParams(lp);
-    }
-
-    @Override
-    public int getVisiableHeight()
-    {
-        return container.getHeight();
     }
 
 
