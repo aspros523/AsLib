@@ -5,6 +5,7 @@
         <attr name="titleSize" format="dimension"/>
         <attr name="titleHeight" format="dimension"/>
         <attr name="titleColor" format="color"/>
+        <attr name="titleBgColor" format="color"/>
         <attr name="dividerColor" format="color"/>
         <attr name="dividerSize" format="dimension"/>
         <attr name="dividerMargin" format="dimension"/>

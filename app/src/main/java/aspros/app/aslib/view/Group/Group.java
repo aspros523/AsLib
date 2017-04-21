@@ -23,6 +23,7 @@ public class Group extends ViewGroup
     private Paint paint;
     private String title;
     private int titleColor;
+    private int titleBgColor;
     private int titleHeight;
     private int titleSize;
     private int dividerColor;
@@ -49,6 +50,8 @@ public class Group extends ViewGroup
         title = a.getString(R.styleable.Group_title);
         titleColor = a.getColor(R.styleable.Group_titleColor, context.getResources()
                                                                      .getColor(R.color.color_6));
+        titleBgColor = a.getColor(R.styleable.Group_titleColor, context.getResources()
+                                                                     .getColor(R.color.main_bg));
         titleSize = a.getDimensionPixelSize(R.styleable.Group_titleSize, DensityUtil.sp2px(context,12));
         titleHeight = a.getDimensionPixelSize(R.styleable.Group_titleHeight, DensityUtil.dip2px(context, 35));
 
@@ -131,7 +134,7 @@ public class Group extends ViewGroup
         super.onDraw(canvas);
         paint.setAntiAlias(true);
         paint.setStrokeWidth(dividerSize);
-        paint.setColor(titleColor);
+
         paint.setTextSize(titleSize);
         paint.setTextAlign(Paint.Align.LEFT);
 
@@ -139,16 +142,19 @@ public class Group extends ViewGroup
 
         if(titleRect==null)
         {
-            titleRect=new RectF(dividerMargin,paddingTop+titleHeight/4,getWidth(),titleHeight);
-
+            titleRect=new RectF(0,paddingTop,getWidth(),titleHeight);
         }
+
+        paint.setColor(titleBgColor);
+        canvas.drawRect(titleRect,paint);
 
         if(!TextUtils.isEmpty(title))
         {
+            paint.setColor(titleColor);
             Paint.FontMetricsInt fontMetrics = paint.getFontMetricsInt();
              int baseline = (int) ((titleRect.bottom + titleRect.top - fontMetrics.bottom - fontMetrics.top) / 2);
 
-            canvas.drawText(title, titleRect.left, baseline, paint);
+            canvas.drawText(title, dividerMargin, baseline, paint);
         }
         paint.setColor(dividerColor);
 
