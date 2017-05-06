@@ -24,6 +24,11 @@
             android:name=".XRecyclerActivity"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".RichEditActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

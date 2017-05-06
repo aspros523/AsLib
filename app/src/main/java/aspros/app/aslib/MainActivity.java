@@ -18,14 +18,15 @@ public class MainActivity extends AppCompatActivity
 
     public void initView()
     {
-        findViewById(R.id.xrecycler).setOnClickListener(new View.OnClickListener()
+        findViewById(R.id.xrecycler).setOnClickListener(v ->
         {
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent=new Intent(MainActivity.this,XRecyclerActivity.class);
-                startActivity(intent);
-            }
+            Intent intent=new Intent(MainActivity.this,XRecyclerActivity.class);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.richedit_tv).setOnClickListener(v -> {
+            Intent intent=new Intent(MainActivity.this,RichEditActivity.class);
+            startActivity(intent);
         });
     }
 

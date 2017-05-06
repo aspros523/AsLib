@@ -26,22 +26,14 @@
                 android:drawableRight="@mipmap/arrow_right"
                 android:text="下拉刷新"/>
             <TextView
-                android:id="@+id/action"
+                android:id="@+id/richedit_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="12dp"
                 android:background="@color/white"
 
                 android:drawableRight="@mipmap/arrow_right"
-                android:text="下拉刷新"/>
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/gold"/>
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/pay_wx"/>
+                android:text="富文本"/>
       </aspros.app.aslib.view.Group.Group>
 
 
