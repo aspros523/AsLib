@@ -10,32 +10,96 @@
     android:background="@color/white"
     tools:context="aspros.app.aslib.MainActivity">
 
-      <aspros.app.aslib.view.Group.Group
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:background="@color/white"
-          app:title="组件"
-          app:titleBgColor="@color/main_bg"
-          >
-            <TextView
-                android:id="@+id/xrecycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="12dp"
-                android:background="@color/white"
-                android:drawableRight="@mipmap/arrow_right"
-                android:text="下拉刷新"/>
-            <TextView
-                android:id="@+id/richedit_tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="12dp"
-                android:background="@color/white"
+     <!--<aspros.app.aslib.view.StereoView-->
+         <!--android:layout_width="match_parent"-->
+         <!--android:layout_marginTop="50dp"-->
+         <!--android:layout_height="80dp">-->
+          <!--<TextView-->
+              <!--android:layout_width="match_parent"-->
+              <!--android:layout_height="match_parent"-->
+              <!--android:text="0"-->
+              <!--android:gravity="center"-->
+              <!--android:background="@color/red">-->
 
-                android:drawableRight="@mipmap/arrow_right"
-                android:text="富文本"/>
-      </aspros.app.aslib.view.Group.Group>
+          <!--</TextView>-->
+          <!--<TextView-->
+              <!--android:layout_width="match_parent"-->
+              <!--android:layout_height="match_parent"-->
+              <!--android:text="1"-->
+              <!--android:gravity="center"-->
+              <!--android:background="@color/blue1">-->
+
+          <!--</TextView>-->
+          <!--<TextView-->
+              <!--android:layout_width="match_parent"-->
+              <!--android:layout_height="match_parent"-->
+              <!--android:gravity="center"-->
+              <!--android:text="2"-->
+              <!--android:background="@color/green">-->
+
+          <!--</TextView>-->
+          <!--<TextView-->
+              <!--android:layout_width="match_parent"-->
+              <!--android:layout_height="match_parent"-->
+              <!--android:text="3"-->
+              <!--android:gravity="center"-->
+              <!--android:background="@color/myellow">-->
+
+          <!--</TextView>-->
+         <!--</aspros.app.aslib.view.StereoView>-->
 
 
+     <!--<aspros.app.aslib.view.FlipableView-->
+         <!--android:id="@+id/flipview"-->
+         <!--android:layout_width="match_parent"-->
+         <!--android:layout_height="80dp"-->
+         <!--android:layout_marginTop="50dp"-->
+         <!--&gt;-->
+          <!--<TextView-->
+              <!--android:layout_width="match_parent"-->
+              <!--android:layout_height="match_parent"-->
+              <!--android:text="0"-->
+              <!--android:gravity="center"-->
+              <!--android:background="@color/red">-->
 
+          <!--</TextView>-->
+          <!--<TextView-->
+              <!--android:layout_width="match_parent"-->
+              <!--android:layout_height="match_parent"-->
+              <!--android:text="1"-->
+              <!--android:gravity="center"-->
+              <!--android:background="@color/blue1">-->
+
+          <!--</TextView>-->
+     <!--</aspros.app.aslib.view.FlipableView>-->
+
+     <Button
+         android:id="@+id/btn0"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="30dp"
+         android:text="重启设备"
+         android:layout_gravity="center_horizontal"/>
+
+     <Button
+         android:id="@+id/btn1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="30dp"
+         android:text="休眠设备"
+         android:layout_gravity="center_horizontal"/>
+     <Button
+         android:id="@+id/btn2"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="30dp"
+         android:text="唤醒设备"
+         android:layout_gravity="center_horizontal"/>
+     <Button
+         android:id="@+id/btn3"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="30dp"
+         android:text="关机"
+         android:layout_gravity="center_horizontal"/>
 </LinearLayout>

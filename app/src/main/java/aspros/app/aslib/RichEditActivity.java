@@ -60,7 +60,7 @@ public class RichEditActivity extends AppCompatActivity implements View.OnClickL
         //mEditor.setEditorBackgroundColor(Color.BLUE);
         //mEditor.setBackgroundColor(Color.BLUE);
         //mEditor.setBackgroundResource(R.drawable.bg);
-        mEditor.setPadding(10, 10, 10, 10);
+        mEditor.setPadding(10, 10, 10, 40);
         //mEditor.setBackground("https://raw.githubusercontent.com/wasabeef/art/master/chip.jpg");
         mEditor.setPlaceholder("Insert text here...");
         //mEditor.setInputEnabled(false);
